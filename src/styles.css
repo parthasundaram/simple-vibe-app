@@ -166,6 +166,7 @@ h1 {
   background: transparent;
   color: var(--muted);
   padding: 9px 12px;
+  text-transform: capitalize;
 }
 
 .filters button.active {
