@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Today Board</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="Today Board">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Daily planner</p>
+            <h1>Today Board</h1>
+          </div>
+          <div class="date-chip" id="todayDate"></div>
+        </header>
+
+        <section class="stats" aria-label="Task summary">
+          <div>
+            <span id="doneCount">0</span>
+            <small>Done</small>
+          </div>
+          <div>
+            <span id="openCount">0</span>
+            <small>Open</small>
+          </div>
+          <div>
+            <span id="focusCount">0</span>
+            <small>Focus</small>
+          </div>
+        </section>
+
+        <form class="task-form" id="taskForm">
+          <label class="sr-only" for="taskInput">New task</label>
+          <input id="taskInput" type="text" placeholder="Add something worth doing..." autocomplete="off" />
+          <select id="priorityInput" aria-label="Priority">
+            <option value="focus">Focus</option>
+            <option value="soon">Soon</option>
+            <option value="later">Later</option>
+          </select>
+          <button type="submit">Add</button>
+        </form>
+
+        <nav class="filters" aria-label="Task filters">
+          <button class="active" type="button" data-filter="all">All</button>
+          <button type="button" data-filter="focus">Focus</button>
+          <button type="button" data-filter="open">Open</button>
+          <button type="button" data-filter="done">Done</button>
+        </nav>
+
+        <ul class="task-list" id="taskList" aria-live="polite"></ul>
+        <p class="empty-state" id="emptyState">Your board is clear. Add a task to begin.</p>
+      </section>
+    </main>
+
+    <template id="taskTemplate">
+      <li class="task-card">
+        <label>
+          <input type="checkbox" />
+          <span class="task-title"></span>
+        </label>
+        <span class="priority-pill"></span>
+        <button class="delete-btn" type="button" aria-label="Delete task">×</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
